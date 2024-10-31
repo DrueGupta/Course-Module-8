@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+class Taxicab
+{
+private:
+	int xPosition = 0;
+	int yPosition = 0;
+	int odometer;
+public:
+	void moveUp(int);
+	void moveDown(int);
+	void moveLeft(int);
+	void moveRight(int);
+	void display()
+};
+//Keeps track of movement
+double Taxicab::moveUp()
+{
+	return xPosition++;
+}
+double Taxicab::moveDown()
+{
+	return xPosition--;
+}
+double Taxicab::moveLeft()
+{
+	return yPosition--;
+}
+double Taxicab::moveRight()
+{
+	return yPosition++;
+}
+//keeps track of odometer
+//I'll think of a solution later
+
+int main()
+{
+
+}
