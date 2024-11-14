@@ -3,9 +3,9 @@
 #include "Header.h"
 using namespace std;
 
-class Taxiservice : public Taxicab 
+class Taxiservice : public Taxicab
 {
-private:
+public:
 	int meter;
 	double rate;
 	double account;
@@ -20,7 +20,7 @@ public:
 		this->meter = 0;
 		this->rate = rate;
 		this->account = 0;
-		this-> passanger = false;
+		this->passanger = false;
 	}
 	Taxiservice()
 	{
@@ -54,5 +54,35 @@ public:
 		vertDelta = endY - beginY;
 		this->moveUp(vertDelta);
 		this->dropOff();
+	}
+	void display()
+	{
+		Taxicab::display();
+		cout << "Meter: " << this->meter << (this->passanger ? "[P]\n" : "\n")
+			<< "Account: " << this->account << endl;
+	}
+	void moveUp(int distance)
+	{
+		Taxicab::moveUp(distance);
+		if (this->passanger)
+			this->meter += distance;
+	}
+	void moveDown(int distance)
+	{
+		Taxicab::moveDown(distance);
+		if (this->passanger)
+			this->meter += distance;
+	}
+	void moveLeft(int distance)
+	{
+		Taxicab::moveLeft(distance);
+		if (this->passanger)
+			this->meter += distance;
+	}
+	void moveRight(int distance)
+	{
+		Taxicab::moveRight(distance);
+		if (this->passanger)
+			this->meter += distance;
 	}
 };
